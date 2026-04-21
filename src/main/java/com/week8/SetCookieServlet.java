@@ -16,14 +16,10 @@ public class SetCookieServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
      
-
-        // 1. Create a cookie (Name, Value)
         Cookie userCookie = new Cookie("username", username);
         
-        // 2. Set expiry time in seconds (e.g., 1 hour)
         userCookie.setMaxAge(3600); 
         
-        // 3. Add the cookie to the response
         response.addCookie(userCookie);
         
         response.getWriter().println("Cookie has been set!");
